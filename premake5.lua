@@ -15,9 +15,10 @@ workspace "WHRenderToy"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
--- Include directories relative to root folder (solution directory)
 IncludeDir = {}
-IncludeDir["ImGui"] = "external/imgui"
+IncludeDir["ImGui"] = "%{wks.location}/external/imgui"
+IncludeDir["SimpleMath"] = "%{wks.location}/external/SimpleMath"
+IncludeDir["WHGraphics"] = "%{wks.location}/WHGraphics/src"
 
 group "Dependencies"
 		include "external/imgui"

@@ -1,14 +1,16 @@
 project "WHGraphics"
 		kind "StaticLib"
 		language "C++"
-		cppdialect "C++17"
+		cppdialect "C++20"
 		staticruntime "off"
 
 		targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
-		pchheader "WHGraphics.h"
-		pchsource "src/WHGraphics.cpp"
+		pchheader "pch.h"
+		pchsource "src/pch.cpp"
+
+		forceincludes { "pch.h" }
 
 		files
 		{
@@ -23,8 +25,9 @@ project "WHGraphics"
 
 		includedirs
 		{
-			"%{prj.name}/src",
-			"%{IncludeDir.ImGui}"
+			"src",
+			"%{IncludeDir.ImGui}",
+			"%{IncludeDir.SimpleMath}"
 		}
 
 		links

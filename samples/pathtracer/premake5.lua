@@ -1,8 +1,8 @@
 project "PathTracer"
 		kind "WindowedApp"
 		language "C++"
-		cppdialect "C++17"
-		staticruntime "on"
+		cppdialect "C++20"
+		staticruntime "off"
 
 		targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 		objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -13,9 +13,14 @@ project "PathTracer"
 			"src/**.cpp"
 		}
 
+		defines
+		{
+			"_CRT_SECURE_NO_WARNINGS",
+		}
+
 		includedirs
 		{
-			"%{wks.location}/WHGraphics/src"
+			"%{IncludeDir.WHGraphics}",
 		}
 
 		links
